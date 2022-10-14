@@ -74,6 +74,8 @@ if __name__ == "__main__":
             if event.type == KEYDOWN:
                 if event.key == K_ESCAPE:
                     running = False
+            elif event.type == QUIT:
+                running = False
         screen.fill((30,30,30))
         crop_image.reLoadImage()
         try:
