@@ -46,17 +46,17 @@ if __name__ == "__main__":
     h = 960
     screen = pygame.display.set_mode((w, h))
     # image from Iris
-    crop_image = UpdatedImage("/home/liam/Desktop/iris_openhouse/img.jpg", w, h)
+    crop_image = UpdatedImage("/home/liam/Desktop/iris_openhouse/logos/cow.jpg", w, h)
 
     # absat logo
-    absatraw = pygame.image.load("/home/liam/Desktop/iris_openhouse/absatlogo.png")
+    absatraw = pygame.image.load("/home/liam/Desktop/iris_openhouse/logos/absatlogo.png")
     absatlogo = pygame.transform.scale(absatraw, (absatraw.get_width()*0.1, absatraw.get_height()*0.1))
 
     # ualberta logo
-    uabraw = pygame.image.load("/home/liam/Desktop/iris_openhouse/ua_logo.png")
+    uabraw = pygame.image.load("/home/liam/Desktop/iris_openhouse/logos/ua_logo.png")
     uablogo = pygame.transform.scale(uabraw, (uabraw.get_width()*0.17, uabraw.get_height()*0.17))
 
-    error_img = cv2.rotate(cv2.flip(cv2.resize(mpimg.imread("/home/liam/Desktop/iris_openhouse/error.jpg"), dsize=(h, w), interpolation=cv2.INTER_LINEAR), 0), cv2.ROTATE_90_CLOCKWISE)
+    error_img = cv2.rotate(cv2.flip(cv2.resize(mpimg.imread("/home/liam/Desktop/iris_openhouse/logos/error.jpg"), dsize=(h, w), interpolation=cv2.INTER_LINEAR), 0), cv2.ROTATE_90_CLOCKWISE)
     error_image = pygame.surfarray.make_surface(error_img)
     running = True
     while running:
