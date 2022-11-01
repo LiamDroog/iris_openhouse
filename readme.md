@@ -17,15 +17,14 @@ You'll need x things:
 8. Multimeter
 ## Assembly:
 Place Iris on the PCB holder. Plug in power supply to the breakout board (not Iris, yet.), and turn power on. Ensure you have 5V0 and 3V3 on the requisite pads.
-Once power is confirmed, plug in Iris to the breakout board. Attach USB-UART adapter to laptop and breakout board.
-
-# Liam TODO: Hardwire nrst and boot0 to requisite pulls
+Once power is confirmed, plug in Iris to the breakout board. Make sure the orientation of the harness is correct (red line corresponds to pin 1).
+Attach USB-UART adapter to laptop and breakout board. Recall - Iris Tx -> Adapter Rx; Iris Rx -> Adapter Tx
 
 ## Running:
 - Navigate to the liveview executable. Execute `sudo ./liveview` and enter your password.
 - Open VSCode. Or use CLI python. Run `imgshow.py`. You will see the error screen. This is normal.
 - Power on Iris. You should see initialization messages, and once it finishes, it will start continually taking images and transferring them. Images are not persistent as they are overwritten by each consecutive picture.
-- Once the first image is captured, you should see the pygame screen change to match, with an ABsat logo and UofA logo at the bottom.
+- Once the first image is captured, you should see the pygame screen change to match, with an ABsat logo and UofA logo at the bottom. One can focus the image by screwing the lens in or out.
 
 That's it! It will run by itself and shouldn't encounter any issues. Highest image count was at the open house where it captured just shy of 6000 consecutive images with no interrupts. Try and break that record!
 
