@@ -41,22 +41,23 @@ class UpdatedImage:
 
 
 if __name__ == "__main__":
+    cwd = os.getcwd()
     pygame.init()
     w = 720
     h = 960
     screen = pygame.display.set_mode((w, h))
     # image from Iris
-    crop_image = UpdatedImage("/home/liam/Desktop/iris_openhouse/logos/cow.jpg", w, h)
+    crop_image = UpdatedImage(os.path.join(cwd, "img.jpg"), w, h)
 
     # absat logo
-    absatraw = pygame.image.load("/home/liam/Desktop/iris_openhouse/logos/absatlogo.png")
+    absatraw = pygame.image.load(os.path.join(cwd, "logos/absatlogo.png"))
     absatlogo = pygame.transform.scale(absatraw, (absatraw.get_width()*0.1, absatraw.get_height()*0.1))
 
     # ualberta logo
-    uabraw = pygame.image.load("/home/liam/Desktop/iris_openhouse/logos/ua_logo.png")
+    uabraw = pygame.image.load(os.path.join(cwd, "logos/ua_logo.png"))
     uablogo = pygame.transform.scale(uabraw, (uabraw.get_width()*0.17, uabraw.get_height()*0.17))
 
-    error_img = cv2.rotate(cv2.flip(cv2.resize(mpimg.imread("/home/liam/Desktop/iris_openhouse/logos/error.jpg"), dsize=(h, w), interpolation=cv2.INTER_LINEAR), 0), cv2.ROTATE_90_CLOCKWISE)
+    error_img = cv2.rotate(cv2.flip(cv2.resize(mpimg.imread(os.path.join(cwd, "logos/error.jpg")), dsize=(h, w), interpolation=cv2.INTER_LINEAR), 0), cv2.ROTATE_90_CLOCKWISE)
     error_image = pygame.surfarray.make_surface(error_img)
     running = True
     while running:
@@ -74,7 +75,7 @@ if __name__ == "__main__":
             screen.blit(absatlogo, (0, h-absatlogo.get_height()))
             screen.blit(uablogo, ( (w/2 - uablogo.get_width()/2), h - uablogo.get_height()))
         except Exception as e:
-            # print(e)
+            print(e)
             screen = pygame.display.set_mode((h,w))
             screen.blit(error_image, (0, 0))
         else:
